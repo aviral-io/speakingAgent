@@ -183,9 +183,10 @@ async def main():
                     if ai_provider == 'gemini':
                         response = gemini_client.models.generate_content(
                             model='gemini-2.5-flash',
-                            contents=f"You are a confident, eloquent business professional taking an extempore speaking test. "
+                            contents=f"i am automating a tts service,if the Topic Prompt: '{payload}'  DOES NOT have lines like 'make it 1-2 min long'and similar to that, then return Topic prompt AS IT IS only that is:'{payload}' else \n\n\n Do as follows:"
+                                     f"You are a confident, eloquent business professional taking an extempore speaking test. "
                                      f"Write a natural, conversational 1-2 minute speech addressing this topic. Speak engagingly, "
-                                     f"as if giving a real response to the interviewer. Aim for roughly 150-250 words total.\n\nTopic Prompt:\n{payload}\n\n"
+                                     f"as if giving a real response to the interviewer. Aim for roughly for 1.5 mins total.\n\nTopic Prompt:\n{payload}\n\n"
                                      f"CRITICAL: Do not include ANY asterisks, markdown, placeholders, or stage directions. "
                                      f"Just write the raw spoken words exactly as they should be dictated out loud."
                         )
@@ -232,15 +233,18 @@ async def main():
                 "ffprobe", "-v", "error", "-show_entries", "format=duration", 
                 "-of", "default=noprint_wrappers=1:nokey=1", WAV_PATH
             ], capture_output=True, text=True)
-            duration_secs = float(probe.stdout.strip())
-            
+            duration_sec = float(probe.stdout.strip())
+            if duration_sec < 14.0:
+                duration_secs=duration_sec
+            else:
+                duration_secs=61.0
             try:
                 start_btn = page.locator("text=/Start Recording/i").first
                 await start_btn.click(timeout=5000)
                 print("Recording started")
                 
-                print(f"Simulating speaking for 1min and some seconds...")
-                await asyncio.sleep(60.0 + 1.0) '''WEXL works fine with 1 min long speech'''
+                print(f"Simulating speaking for {duration_secs} seconds...")
+                await asyncio.sleep(duration_secs+ 1.0) 
                 print("Finished speaking audio into mic")
                 
                 try:
