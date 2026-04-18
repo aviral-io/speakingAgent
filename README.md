@@ -60,3 +60,8 @@ Before running the agent, you must create a local configuration file with your l
 2. The application will prompt you to choose an AI provider to utilize for generating EXTEMPORE answers. Type `1` for Gemini, `2` for SambaNova, or `3` for OpenAI. 
 3. If you have not set it as a system environment variable, the terminal will prompt you to paste your relevant API key (`GEMINI_API_KEY`, `SAMBANOVA_API_KEY`, or `OPENAI_API_KEY`).
 4. The Chromium browser will launch visibly, automatically log in, find the practice grid, and execute the speaking tests completely hands-free!
+
+
+
+## For any Query : 
+   Contact me on linkedin : https://www.linkedin.com/in/aviral-aviral-495394259/
