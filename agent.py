@@ -239,8 +239,8 @@ async def main():
                 await start_btn.click(timeout=5000)
                 print("Recording started")
                 
-                print(f"Simulating speaking for {duration_secs} seconds...")
-                await asyncio.sleep(duration_secs + 1.0) 
+                print(f"Simulating speaking for 1min and some seconds...")
+                await asyncio.sleep(60.0 + 1.0) '''WEXL works fine with 1 min long speech'''
                 print("Finished speaking audio into mic")
                 
                 try:
