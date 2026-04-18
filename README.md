@@ -38,12 +38,8 @@ This bot relies on `ffmpeg` to manipulate the synthetic audio, and Python 3 to r
 
 Before running the agent, you must create a local configuration file with your login credentials and the specific target URL where the lesson practice module is located. 
 
-1. Copy the example configuration file:
-   ```bash
-   cp config.example.json config.json
-   ```
 
-2. Open `config.json` in any text editor and fill in the details:
+1. Open `config.json` in any text editor and fill in the details:
    ```json
    {
        "URL": "https://corporate.bharatenglish.org/#/practice/.../...",
@@ -51,7 +47,7 @@ Before running the agent, you must create a local configuration file with your l
        "PASSWORD": "your_password"
    }
    ```
-   **Important Note:** Do NOT commit your `config.json` containing your real credentials to GitHub. (This is already ignored in the provided `.gitignore`). The `URL` should be precisely the URL of the page where the `Practice` button tasks are listed.
+  
 
 ## Usage
 
