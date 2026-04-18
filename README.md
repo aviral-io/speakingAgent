@@ -40,9 +40,10 @@ Before running the agent, you must create a local configuration file with your l
 
 
 1. Open `config.json` in any text editor and fill in the details:
+   
    ```json
    {
-       "URL": "https://corporate.bharatenglish.org/#/practice/.../...",
+       "URL": "https://corporate.bharatenglish.org/#/practice/.../...(remember to paste link in which the practice icon appears)",
        "USERNAME": "your_email@domain.com",
        "PASSWORD": "your_password"
    }
