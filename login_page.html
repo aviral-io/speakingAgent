@@ -1,0 +1,407 @@
+<!DOCTYPE html><html lang="en" dir="ltr"><head>
+  <meta charset="utf-8">
+  <title>Learner</title>
+  <base href="./">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <link rel="icon" type="image/x-icon" href="/assets/images/bet-app/K12-Logo.svg" style="width:100%; height: 100%;">
+  <link id="org-theme" rel="stylesheet" href="theme-bet.css" type="text/css">
+  <script src="./assets/js/jquery.min.js"></script>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script><script src="https://cdn.razorpay.com/static/cx/razorpay-risk-detection/bundle.js" async=""></script>
+<link rel="stylesheet" href="styles-DJZSMWLN.css"><style type="text/css">.CtxtMenu_InfoClose {  top:.2em; right:.2em;}
+.CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
+.CtxtMenu_Info.CtxtMenu_MousePost {outline:none;}
+.CtxtMenu_Info {  position:fixed; left:50%; width:auto; text-align:center;  border:3px outset; padding:1em 2em; background-color:#DDDDDD;  color:black;  cursor:default; font-family:message-box; font-size:120%;  font-style:normal; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 15px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius:15px;               /* Safari and Chrome */  -moz-border-radius:15px;                  /* Firefox */  -khtml-border-radius:15px;                /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */  filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color="gray", Positive="true"); /* IE */}
+</style><style type="text/css">.CtxtMenu_MenuClose {  position:absolute;  cursor:pointer;  display:inline-block;  border:2px solid #AAA;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  font-family: "Courier New", Courier;  font-size:24px;  color:#F0F0F0}
+.CtxtMenu_MenuClose span {  display:block; background-color:#AAA; border:1.5px solid;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  line-height:0;  padding:8px 0 6px     /* may need to be browser-specific */}
+.CtxtMenu_MenuClose:hover {  color:white!important;  border:2px solid #CCC!important}
+.CtxtMenu_MenuClose:hover span {  background-color:#CCC!important}
+.CtxtMenu_MenuClose:hover:focus {  outline:none}
+</style><style type="text/css">.CtxtMenu_Menu {  position:absolute;  background-color:white;  color:black;  width:auto; padding:5px 0px;  border:1px solid #CCCCCC; margin:0; cursor:default;  font: menu; text-align:left; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 5px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius: 5px;             /* Safari and Chrome */  -moz-border-radius: 5px;                /* Firefox */  -khtml-border-radius: 5px;              /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */}
+.CtxtMenu_MenuItem {  padding: 1px 2em;  background:transparent;}
+.CtxtMenu_MenuArrow {  position:absolute; right:.5em; padding-top:.25em; color:#666666;  font-family: null; font-size: .75em}
+.CtxtMenu_MenuActive .CtxtMenu_MenuArrow {color:white}
+.CtxtMenu_MenuArrow.CtxtMenu_RTL {left:.5em; right:auto}
+.CtxtMenu_MenuCheck {  position:absolute; left:.7em;  font-family: null}
+.CtxtMenu_MenuCheck.CtxtMenu_RTL { right:.7em; left:auto }
+.CtxtMenu_MenuRadioCheck {  position:absolute; left: .7em;}
+.CtxtMenu_MenuRadioCheck.CtxtMenu_RTL {  right: .7em; left:auto}
+.CtxtMenu_MenuInputBox {  padding-left: 1em; right:.5em; color:#666666;  font-family: null;}
+.CtxtMenu_MenuInputBox.CtxtMenu_RTL {  left: .1em;}
+.CtxtMenu_MenuComboBox {  left:.1em; padding-bottom:.5em;}
+.CtxtMenu_MenuSlider {  left: .1em;}
+.CtxtMenu_SliderValue {  position:absolute; right:.1em; padding-top:.25em; color:#333333;  font-size: .75em}
+.CtxtMenu_SliderBar {  outline: none; background: #d3d3d3}
+.CtxtMenu_MenuLabel {  padding: 1px 2em 3px 1.33em;  font-style:italic}
+.CtxtMenu_MenuRule {  border-top: 1px solid #DDDDDD;  margin: 4px 3px;}
+.CtxtMenu_MenuDisabled {  color:GrayText}
+.CtxtMenu_MenuActive {  background-color: #606872;  color: white;}
+.CtxtMenu_MenuDisabled:focus {  background-color: #E8E8E8}
+.CtxtMenu_MenuLabel:focus {  background-color: #E8E8E8}
+.CtxtMenu_ContextMenu:focus {  outline:none}
+.CtxtMenu_ContextMenu .CtxtMenu_MenuItem:focus {  outline:none}
+.CtxtMenu_SelectionMenu {  position:relative; float:left;  border-bottom: none; -webkit-box-shadow:none; -webkit-border-radius:0px; }
+.CtxtMenu_SelectionItem {  padding-right: 1em;}
+.CtxtMenu_Selection {  right: 40%; width:50%; }
+.CtxtMenu_SelectionBox {  padding: 0em; max-height:20em; max-width: none;  background-color:#FFFFFF;}
+.CtxtMenu_SelectionDivider {  clear: both; border-top: 2px solid #000000;}
+.CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
+</style><style id="MJX-CHTML-styles">
+mjx-container[jax="CHTML"] {
+  line-height: 0;
+}
+
+mjx-container [space="1"] {
+  margin-left: .111em;
+}
+
+mjx-container [space="2"] {
+  margin-left: .167em;
+}
+
+mjx-container [space="3"] {
+  margin-left: .222em;
+}
+
+mjx-container [space="4"] {
+  margin-left: .278em;
+}
+
+mjx-container [space="5"] {
+  margin-left: .333em;
+}
+
+mjx-container [rspace="1"] {
+  margin-right: .111em;
+}
+
+mjx-container [rspace="2"] {
+  margin-right: .167em;
+}
+
+mjx-container [rspace="3"] {
+  margin-right: .222em;
+}
+
+mjx-container [rspace="4"] {
+  margin-right: .278em;
+}
+
+mjx-container [rspace="5"] {
+  margin-right: .333em;
+}
+
+mjx-container [size="s"] {
+  font-size: 70.7%;
+}
+
+mjx-container [size="ss"] {
+  font-size: 50%;
+}
+
+mjx-container [size="Tn"] {
+  font-size: 60%;
+}
+
+mjx-container [size="sm"] {
+  font-size: 85%;
+}
+
+mjx-container [size="lg"] {
+  font-size: 120%;
+}
+
+mjx-container [size="Lg"] {
+  font-size: 144%;
+}
+
+mjx-container [size="LG"] {
+  font-size: 173%;
+}
+
+mjx-container [size="hg"] {
+  font-size: 207%;
+}
+
+mjx-container [size="HG"] {
+  font-size: 249%;
+}
+
+mjx-container [width="full"] {
+  width: 100%;
+}
+
+mjx-box {
+  display: inline-block;
+}
+
+mjx-block {
+  display: block;
+}
+
+mjx-itable {
+  display: inline-table;
+}
+
+mjx-row {
+  display: table-row;
+}
+
+mjx-row > * {
+  display: table-cell;
+}
+
+mjx-mtext {
+  display: inline-block;
+}
+
+mjx-mstyle {
+  display: inline-block;
+}
+
+mjx-merror {
+  display: inline-block;
+  color: red;
+  background-color: yellow;
+}
+
+mjx-mphantom {
+  visibility: hidden;
+}
+
+_::-webkit-full-page-media, _:future, :root mjx-container {
+  will-change: opacity;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-c::before {
+  display: block;
+  width: 0;
+}
+
+.MJX-TEX {
+  font-family: MJXZERO, MJXTEX;
+}
+
+.TEX-B {
+  font-family: MJXZERO, MJXTEX-B;
+}
+
+.TEX-I {
+  font-family: MJXZERO, MJXTEX-I;
+}
+
+.TEX-MI {
+  font-family: MJXZERO, MJXTEX-MI;
+}
+
+.TEX-BI {
+  font-family: MJXZERO, MJXTEX-BI;
+}
+
+.TEX-S1 {
+  font-family: MJXZERO, MJXTEX-S1;
+}
+
+.TEX-S2 {
+  font-family: MJXZERO, MJXTEX-S2;
+}
+
+.TEX-S3 {
+  font-family: MJXZERO, MJXTEX-S3;
+}
+
+.TEX-S4 {
+  font-family: MJXZERO, MJXTEX-S4;
+}
+
+.TEX-A {
+  font-family: MJXZERO, MJXTEX-A;
+}
+
+.TEX-C {
+  font-family: MJXZERO, MJXTEX-C;
+}
+
+.TEX-CB {
+  font-family: MJXZERO, MJXTEX-CB;
+}
+
+.TEX-FR {
+  font-family: MJXZERO, MJXTEX-FR;
+}
+
+.TEX-FRB {
+  font-family: MJXZERO, MJXTEX-FRB;
+}
+
+.TEX-SS {
+  font-family: MJXZERO, MJXTEX-SS;
+}
+
+.TEX-SSB {
+  font-family: MJXZERO, MJXTEX-SSB;
+}
+
+.TEX-SSI {
+  font-family: MJXZERO, MJXTEX-SSI;
+}
+
+.TEX-SC {
+  font-family: MJXZERO, MJXTEX-SC;
+}
+
+.TEX-T {
+  font-family: MJXZERO, MJXTEX-T;
+}
+
+.TEX-V {
+  font-family: MJXZERO, MJXTEX-V;
+}
+
+.TEX-VB {
+  font-family: MJXZERO, MJXTEX-VB;
+}
+
+mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
+  font-family: MJXZERO, MJXTEX-S1, MJXTEX-S4, MJXTEX, MJXTEX-A ! important;
+}
+
+@font-face /* 0 */ {
+  font-family: MJXZERO;
+  src: url("https://corporate.bharatenglish.org/output/chtml/fonts/woff-v2/MathJax_Zero.woff") format("woff");
+}
+
+@font-face /* 1 */ {
+  font-family: MJXTEX;
+  src: url("https://corporate.bharatenglish.org/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff") format("woff");
+}
+
+@font-face /* 2 */ {
+  font-family: MJXTEX-B;
+  src: url("https://corporate.bharatenglish.org/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff") format("woff");
+}
+
+@font-face /* 3 */ {
+  font-family: MJXTEX-I;
+  src: url("https://corporate.bharatenglish.org/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff") format("woff");
+}
+
+@font-face /* 4 */ {
+  font-family: MJXTEX-MI;
+  src: url("https://corporate.bharatenglish.org/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff") format("woff");
+}
+
+@font-face /* 5 */ {
+  font-family: MJXTEX-BI;
+  src: url("https://corporate.bharatenglish.org/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff") format("woff");
+}
+
+@font-face /* 6 */ {
+  font-family: MJXTEX-S1;
+  src: url("https://corporate.bharatenglish.org/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff") format("woff");
+}
+
+@font-face /* 7 */ {
+  font-family: MJXTEX-S2;
+  src: url("https://corporate.bharatenglish.org/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff") format("woff");
+}
+
+@font-face /* 8 */ {
+  font-family: MJXTEX-S3;
+  src: url("https://corporate.bharatenglish.org/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff") format("woff");
+}
+
+@font-face /* 9 */ {
+  font-family: MJXTEX-S4;
+  src: url("https://corporate.bharatenglish.org/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff") format("woff");
+}
+
+@font-face /* 10 */ {
+  font-family: MJXTEX-A;
+  src: url("https://corporate.bharatenglish.org/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff") format("woff");
+}
+
+@font-face /* 11 */ {
+  font-family: MJXTEX-C;
+  src: url("https://corporate.bharatenglish.org/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff") format("woff");
+}
+
+@font-face /* 12 */ {
+  font-family: MJXTEX-CB;
+  src: url("https://corporate.bharatenglish.org/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff") format("woff");
+}
+
+@font-face /* 13 */ {
+  font-family: MJXTEX-FR;
+  src: url("https://corporate.bharatenglish.org/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff") format("woff");
+}
+
+@font-face /* 14 */ {
+  font-family: MJXTEX-FRB;
+  src: url("https://corporate.bharatenglish.org/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff") format("woff");
+}
+
+@font-face /* 15 */ {
+  font-family: MJXTEX-SS;
+  src: url("https://corporate.bharatenglish.org/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff") format("woff");
+}
+
+@font-face /* 16 */ {
+  font-family: MJXTEX-SSB;
+  src: url("https://corporate.bharatenglish.org/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff") format("woff");
+}
+
+@font-face /* 17 */ {
+  font-family: MJXTEX-SSI;
+  src: url("https://corporate.bharatenglish.org/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff") format("woff");
+}
+
+@font-face /* 18 */ {
+  font-family: MJXTEX-SC;
+  src: url("https://corporate.bharatenglish.org/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff") format("woff");
+}
+
+@font-face /* 19 */ {
+  font-family: MJXTEX-T;
+  src: url("https://corporate.bharatenglish.org/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff") format("woff");
+}
+
+@font-face /* 20 */ {
+  font-family: MJXTEX-V;
+  src: url("https://corporate.bharatenglish.org/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff") format("woff");
+}
+
+@font-face /* 21 */ {
+  font-family: MJXTEX-VB;
+  src: url("https://corporate.bharatenglish.org/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff") format("woff");
+}
+</style><style type="text/css"></style><style>.ngx-spinner-overlay[_ngcontent-ng-c2230211809]{position:fixed;top:0;left:0;width:100%;height:100%}.ngx-spinner-overlay[_ngcontent-ng-c2230211809] > div[_ngcontent-ng-c2230211809]:not(.loading-text){top:50%;left:50%;margin:0;position:absolute;transform:translate(-50%,-50%)}.loading-text[_ngcontent-ng-c2230211809]{position:absolute;top:60%;left:50%;transform:translate(-50%,-60%)}</style><style>.exam-portal-container[_ngcontent-ng-c1584373696]{min-height:100vh;display:flex;background:linear-gradient(135deg,#f5f7fa,#c3cfe2);font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;position:relative;overflow:hidden}.logo-container[_ngcontent-ng-c1584373696]{display:flex;justify-content:center}.top-right-curve[_ngcontent-ng-c1584373696]{position:absolute;top:0;right:0;width:400px;height:300px;z-index:1;overflow:hidden}.curve-layer-1[_ngcontent-ng-c1584373696]{position:absolute;top:-50px;right:-50px;width:300px;height:250px;background:linear-gradient(135deg,#667eea,#764ba2);border-radius:0 0 0 100%;opacity:.8;animation:_ngcontent-ng-c1584373696_curveFloat1 6s ease-in-out infinite}.curve-layer-2[_ngcontent-ng-c1584373696]{position:absolute;top:-30px;right:-30px;width:250px;height:200px;background:linear-gradient(135deg,#4facfe,#00f2fe);border-radius:0 0 0 80%;opacity:.6;animation:_ngcontent-ng-c1584373696_curveFloat2 8s ease-in-out infinite reverse}.curve-layer-3[_ngcontent-ng-c1584373696]{position:absolute;top:-20px;right:-20px;width:200px;height:150px;background:linear-gradient(135deg,#a8edea,#fed6e3);border-radius:0 0 0 60%;opacity:.4;animation:_ngcontent-ng-c1584373696_curveFloat3 10s ease-in-out infinite}@keyframes _ngcontent-ng-c1584373696_curveFloat1{0%,to{transform:translateY(0) rotate(0)}50%{transform:translateY(-10px) rotate(2deg)}}@keyframes _ngcontent-ng-c1584373696_curveFloat2{0%,to{transform:translateY(0) rotate(0)}50%{transform:translateY(-15px) rotate(-1deg)}}@keyframes _ngcontent-ng-c1584373696_curveFloat3{0%,to{transform:translateY(0) rotate(0)}50%{transform:translateY(-8px) rotate(1deg)}}.exam-portal-wrapper[_ngcontent-ng-c1584373696]{display:flex;width:100%;min-height:100vh;position:relative;z-index:2}.features-section[_ngcontent-ng-c1584373696]{flex:1;display:flex;align-items:center;justify-content:center;padding:1.5rem;background:#fff;position:relative}.features-content[_ngcontent-ng-c1584373696]{max-width:450px;text-align:center;width:100%}.portal-icon[_ngcontent-ng-c1584373696]{margin-bottom:1rem}.icon-wrapper[_ngcontent-ng-c1584373696]{position:relative;display:inline-flex;align-items:center;justify-content:center;width:120px;height:115px;background:#dbeafe;border-radius:50%;margin:0 auto .5rem;box-shadow:0 8px 20px #667eea4d}.graduation-icon[_ngcontent-ng-c1584373696]{color:#fff;font-size:2.5rem}.exam-badge[_ngcontent-ng-c1584373696]{position:absolute;bottom:-3px;right:-3px;width:28px;height:28px;background:#4285f4;border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid white;box-shadow:0 3px 10px #4285f44d}.exam-badge[_ngcontent-ng-c1584373696]   mat-icon[_ngcontent-ng-c1584373696]{color:#fff;font-size:1rem}.portal-title[_ngcontent-ng-c1584373696]{font-size:1.8rem;font-weight:700;color:#2c3e50;margin-bottom:.5rem;line-height:1.2}.portal-subtitle[_ngcontent-ng-c1584373696]{font-size:.9rem;color:#7f8c8d;margin-bottom:1.5rem;line-height:1.4;max-width:380px;margin-left:auto;margin-right:auto}.features-grid[_ngcontent-ng-c1584373696]{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}.feature-card[_ngcontent-ng-c1584373696]{text-align:center;padding:1rem;background:#f8f9fa;border-radius:10px;border:1px solid #e9ecef;transition:all .3s ease}.feature-card[_ngcontent-ng-c1584373696]:hover{transform:translateY(-2px);box-shadow:0 6px 20px #0000001a}.feature-icon[_ngcontent-ng-c1584373696]{width:40px;height:40px;background:linear-gradient(135deg,#667eea,#764ba2);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto .8rem}.feature-icon[_ngcontent-ng-c1584373696]   mat-icon[_ngcontent-ng-c1584373696]{color:#fff;font-size:1.3rem}.feature-card[_ngcontent-ng-c1584373696]   h3[_ngcontent-ng-c1584373696]{font-size:.9rem;font-weight:600;color:#2c3e50;margin-bottom:.3rem}.feature-card[_ngcontent-ng-c1584373696]   p[_ngcontent-ng-c1584373696]{font-size:.8rem;color:#7f8c8d;margin:0;line-height:1.3}.login-section[_ngcontent-ng-c1584373696]{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem;background:#f8f9fa;position:relative}.login-card[_ngcontent-ng-c1584373696]{width:100%;max-width:475px;background:#fff;border-radius:16px;padding:2rem;box-shadow:0 10px 40px #0000001a;border:1px solid #e9ecef}.user-avatar[_ngcontent-ng-c1584373696]{width:50px;height:50px;background:#4285f4;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;color:#fff;font-size:1.1rem;font-weight:600}.welcome-section[_ngcontent-ng-c1584373696]{text-align:center;margin-bottom:1.5rem}.welcome-section[_ngcontent-ng-c1584373696]   h2[_ngcontent-ng-c1584373696]{font-size:1.3rem;font-weight:600;color:#2c3e50;margin-bottom:.3rem}.welcome-section[_ngcontent-ng-c1584373696]   p[_ngcontent-ng-c1584373696]{color:#7f8c8d;font-size:.9rem;margin:0}.login-form[_ngcontent-ng-c1584373696]{display:flex;flex-direction:column;gap:1.2rem}.form-group[_ngcontent-ng-c1584373696]{display:flex;flex-direction:column}.form-group[_ngcontent-ng-c1584373696]   label[_ngcontent-ng-c1584373696]{font-size:.9rem;font-weight:500;color:#2c3e50;margin-bottom:.5rem}.input-container[_ngcontent-ng-c1584373696]{position:relative;display:flex;align-items:center;background:#f8f9fa;border:1px solid #e9ecef;border-radius:8px;padding:0 1rem;height:44px;transition:all .3s ease}.input-container[_ngcontent-ng-c1584373696]:focus-within{border-color:#4285f4;box-shadow:0 0 0 3px #4285f41a}.input-icon[_ngcontent-ng-c1584373696]{color:#7f8c8d;margin-right:.75rem;font-size:1.2rem}.form-input[_ngcontent-ng-c1584373696]{flex:1;border:none;outline:none;background:transparent;font-size:.95rem;color:#2c3e50}.form-input[_ngcontent-ng-c1584373696]::placeholder{color:#bdc3c7}.eye-toggle[_ngcontent-ng-c1584373696]{background:none;border:none;cursor:pointer;color:#7f8c8d;padding:0;margin-left:.5rem;transition:color .3s ease}.eye-toggle[_ngcontent-ng-c1584373696]:hover{color:#4285f4}.form-options[_ngcontent-ng-c1584373696]{display:flex;justify-content:space-between;align-items:center;margin-top:.5rem}.remember-me[_ngcontent-ng-c1584373696]{display:flex;align-items:center;cursor:pointer;font-size:.9rem;color:#7f8c8d}.checkbox[_ngcontent-ng-c1584373696]{margin-right:.5rem}.forgot-link[_ngcontent-ng-c1584373696]{color:#4285f4;text-decoration:none;font-size:.9rem;font-weight:500}.forgot-link[_ngcontent-ng-c1584373696]:hover{text-decoration:underline}.signin-btn[_ngcontent-ng-c1584373696]{width:100%;height:44px;background:#4285f4;color:#fff;border:none;border-radius:8px;font-size:1rem;font-weight:500;cursor:pointer;transition:all .3s ease;margin-top:.5rem}.signin-btn[_ngcontent-ng-c1584373696]:hover:not(:disabled){background:#3367d6;transform:translateY(-2px);box-shadow:0 8px 20px #4285f44d}.signin-btn[_ngcontent-ng-c1584373696]:disabled{background:#bdc3c7;cursor:not-allowed;transform:none;box-shadow:none}.or-divider[_ngcontent-ng-c1584373696]{text-align:center;margin:1rem 0;position:relative}.or-divider[_ngcontent-ng-c1584373696]:before{content:"";position:absolute;top:50%;left:0;right:0;height:1px;background:#e9ecef}.or-text[_ngcontent-ng-c1584373696]{background:#fff;color:#7f8c8d;padding:0 1rem;font-size:.9rem;position:relative;z-index:1}.google-signin[_ngcontent-ng-c1584373696]{width:100%;margin:.5rem 0}.need-account[_ngcontent-ng-c1584373696]{text-align:center;margin-top:.5rem;font-size:.9rem;color:#7f8c8d}.contact-link[_ngcontent-ng-c1584373696]{color:#4285f4;text-decoration:none;font-weight:500}.contact-link[_ngcontent-ng-c1584373696]:hover{text-decoration:underline}.error-message[_ngcontent-ng-c1584373696]{color:#e74c3c;font-size:.85rem;margin-top:.5rem}.portal-footer[_ngcontent-ng-c1584373696]{position:absolute;bottom:1rem;left:2rem;right:2rem;display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:#7f8c8d}.footer-content[_ngcontent-ng-c1584373696]{display:flex;flex-direction:column;gap:.25rem}.footer-branding[_ngcontent-ng-c1584373696]{display:flex;align-items:center;gap:.5rem}.footer-logo[_ngcontent-ng-c1584373696]{height:16px;width:auto}.logo-section[_ngcontent-ng-c1584373696]{margin-bottom:1rem}.bet-logo[_ngcontent-ng-c1584373696]{display:flex;justify-content:center;align-items:center;gap:1rem;width:120px;height:auto;filter:drop-shadow(0 2px 8px rgba(0,0,0,.1))}.logo-left[_ngcontent-ng-c1584373696]{width:150px;height:auto;filter:drop-shadow(0 2px 8px rgba(0,0,0,.1))}.logo-right[_ngcontent-ng-c1584373696]{width:60px;height:auto;filter:drop-shadow(0 2px 8px rgba(0,0,0,.1))}@media (max-width: 768px){.exam-portal-wrapper[_ngcontent-ng-c1584373696]{flex-direction:column}.features-section[_ngcontent-ng-c1584373696]{padding:2rem;min-height:auto}.features-grid[_ngcontent-ng-c1584373696]{grid-template-columns:1fr;gap:1rem;margin-top:2rem}.portal-title[_ngcontent-ng-c1584373696]{font-size:2rem}.portal-subtitle[_ngcontent-ng-c1584373696]{font-size:1rem}.bet-logo[_ngcontent-ng-c1584373696]{flex-direction:column;gap:1rem}.logo-left[_ngcontent-ng-c1584373696]{width:140px}.logo-right[_ngcontent-ng-c1584373696]{width:55px}.login-card[_ngcontent-ng-c1584373696]{padding:2rem}.portal-footer[_ngcontent-ng-c1584373696]{position:static;margin-top:2rem;flex-direction:column;gap:1rem;text-align:center}}@media (max-width: 480px){.features-section[_ngcontent-ng-c1584373696]{padding:1.5rem}.login-section[_ngcontent-ng-c1584373696]{padding:1rem}.login-card[_ngcontent-ng-c1584373696]{padding:1.5rem}.portal-title[_ngcontent-ng-c1584373696]{font-size:1.75rem}.bet-logo[_ngcontent-ng-c1584373696]{flex-direction:column;gap:.5rem}.logo-left[_ngcontent-ng-c1584373696]{width:110px}.logo-right[_ngcontent-ng-c1584373696]{width:45px}.features-grid[_ngcontent-ng-c1584373696]{grid-template-columns:1fr;gap:1rem}.feature-card[_ngcontent-ng-c1584373696]{padding:1rem}}.register-blk[_ngcontent-ng-c1584373696]{justify-content:center}.google-signin[_ngcontent-ng-c1584373696]   iframe[_ngcontent-ng-c1584373696]{display:block;position:relative;top:0;left:0;height:44px;width:100%;border:0px;margin:0}.haAclf[_ngcontent-ng-c1584373696]{display:block!important}.S9gUrf-YoZ4jf[_ngcontent-ng-c1584373696], .S9gUrf-YoZ4jf[_ngcontent-ng-c1584373696]   *[_ngcontent-ng-c1584373696]{justify-content:center!important}.S9gUrf-YoZ4jf[_ngcontent-ng-c1584373696]   iframe[_ngcontent-ng-c1584373696]{width:unset}</style><style>mat-icon,mat-icon.mat-primary,mat-icon.mat-accent,mat-icon.mat-warn{color:var(--mat-icon-color, inherit)}.mat-icon{-webkit-user-select:none;user-select:none;background-repeat:no-repeat;display:inline-block;fill:currentColor;height:24px;width:24px;overflow:hidden}.mat-icon.mat-icon-inline{font-size:inherit;height:inherit;line-height:inherit;width:inherit}.mat-icon.mat-ligature-font[fontIcon]::before{content:attr(fontIcon)}[dir=rtl] .mat-icon-rtl-mirror{transform:scale(-1, 1)}.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-prefix .mat-icon,.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon{display:block}.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-prefix .mat-icon-button .mat-icon,.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon-button .mat-icon{margin:auto}
+</style><style>.alert-container[_ngcontent-ng-c3934811152]{display:flex;justify-content:center}.alert-box[_ngcontent-ng-c3934811152]{position:fixed;color:#fff;height:fit-content;top:7rem;border-radius:0;z-index:1111}.alert-danger[_ngcontent-ng-c3934811152]{background-color:#d9534f;border-color:#d9534f}.alert-success[_ngcontent-ng-c3934811152]{background-color:#5cb85c;border-color:#5cb85c}.alert-info[_ngcontent-ng-c3934811152]{background-color:#5c7094;border-color:#5c7094}.alert-warning[_ngcontent-ng-c3934811152]{background-color:#f6a32d;border-color:#f6a32d}.alert-box[_ngcontent-ng-c3934811152]   .close[_ngcontent-ng-c3934811152]{float:right;font-size:1.5rem;font-weight:800;line-height:1;color:#fff;margin-left:10px;cursor:pointer;font-weight:400}.clsSuccess[_ngcontent-ng-c3934811152]{background-position:-158px -222px;width:34px;height:30px}.clsDanger[_ngcontent-ng-c3934811152]{background-position:-216px -171px;width:34px;height:30px}.clsInfo[_ngcontent-ng-c3934811152]{background-position:-158px -171px;width:34px;height:30px}.clsWarning[_ngcontent-ng-c3934811152]{background-position:-213px -224px;width:34px;height:30px}.alertMsgWrapper[_ngcontent-ng-c3934811152]{text-align:center}.alertMsgWrapper[_ngcontent-ng-c3934811152]   span[_ngcontent-ng-c3934811152]{display:block}.alertMsgWrapper[_ngcontent-ng-c3934811152]   span[_ngcontent-ng-c3934811152]:first-child{position:absolute;right:0;top:5px;cursor:pointer}.close[_ngcontent-ng-c3934811152]{opacity:1}@media (max-width: 767px){.alert-box[_ngcontent-ng-c3934811152]{margin:0 auto;text-align:center}}</style></head>
+<body>
+  <bet-apps-root ng-version="19.2.20"><router-outlet></router-outlet><bet-apps-login _nghost-ng-c1584373696="" class="ng-star-inserted"><div _ngcontent-ng-c1584373696="" class="exam-portal-container"><div _ngcontent-ng-c1584373696="" class="exam-portal-wrapper"><div _ngcontent-ng-c1584373696="" class="features-section"><div _ngcontent-ng-c1584373696="" class="features-content"><div _ngcontent-ng-c1584373696="" class="portal-icon"><div _ngcontent-ng-c1584373696="" class="icon-wrapper"><img _ngcontent-ng-c1584373696="" src="/assets/images/bet-app/BET_logo.png" alt="BET Logo" class="bet-logo"></div></div><p _ngcontent-ng-c1584373696="" class="portal-subtitle">Secure testing platform for corporate training and educational assessments</p><div _ngcontent-ng-c1584373696="" class="features-grid"><div _ngcontent-ng-c1584373696="" class="feature-card"><div _ngcontent-ng-c1584373696="" class="feature-icon"><mat-icon _ngcontent-ng-c1584373696="" role="img" class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">security</mat-icon></div><h3 _ngcontent-ng-c1584373696="">Secure Testing</h3><p _ngcontent-ng-c1584373696="">Advanced security protocols to maintain exam integrity</p></div><div _ngcontent-ng-c1584373696="" class="feature-card"><div _ngcontent-ng-c1584373696="" class="feature-icon"><mat-icon _ngcontent-ng-c1584373696="" role="img" class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">speed</mat-icon></div><h3 _ngcontent-ng-c1584373696="">Real-time Results</h3><p _ngcontent-ng-c1584373696="">Immediate feedback and performance analytics</p></div><div _ngcontent-ng-c1584373696="" class="feature-card"><div _ngcontent-ng-c1584373696="" class="feature-icon"><mat-icon _ngcontent-ng-c1584373696="" role="img" class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">business</mat-icon></div><h3 _ngcontent-ng-c1584373696="">Corporate Training</h3><p _ngcontent-ng-c1584373696="">Tailored assessments for professional development</p></div><div _ngcontent-ng-c1584373696="" class="feature-card"><div _ngcontent-ng-c1584373696="" class="feature-icon"><mat-icon _ngcontent-ng-c1584373696="" role="img" class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">school</mat-icon></div><h3 _ngcontent-ng-c1584373696="">Academic Excellence</h3><p _ngcontent-ng-c1584373696="">Comprehensive testing for educational institutions</p></div></div></div></div><div _ngcontent-ng-c1584373696="" class="login-section"><div _ngcontent-ng-c1584373696="" class="login-card"><div _ngcontent-ng-c1584373696="" class="logo-showcase"><div _ngcontent-ng-c1584373696="" class="logo-backdrop"><div _ngcontent-ng-c1584373696="" class="logo-glow"></div><div _ngcontent-ng-c1584373696="" class="logo-ripple"></div><div _ngcontent-ng-c1584373696="" class="logo-container"><img _ngcontent-ng-c1584373696="" alt="FluentEdge Logo" class="fluentedge-logo-stunning" src="https://images.wexledu.com/bet-sections/gok250833/20250814110230188.png"></div></div></div><div _ngcontent-ng-c1584373696="" class="welcome-section"><p _ngcontent-ng-c1584373696="">AI adaptive learning - English and business communication&nbsp;excellence</p></div><form _ngcontent-ng-c1584373696="" novalidate="" class="login-form ng-untouched ng-pristine ng-invalid"><div _ngcontent-ng-c1584373696="" class="form-group"><label _ngcontent-ng-c1584373696="" for="username">Username</label><div _ngcontent-ng-c1584373696="" class="input-container"><mat-icon _ngcontent-ng-c1584373696="" role="img" class="mat-icon notranslate input-icon material-icons mat-ligature-font mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">person</mat-icon><input _ngcontent-ng-c1584373696="" id="username" type="email" placeholder="Enter your username" formcontrolname="email" required="" class="form-input ng-untouched ng-pristine ng-invalid"></div><!----></div><div _ngcontent-ng-c1584373696="" class="form-group"><label _ngcontent-ng-c1584373696="" for="password">Password</label><div _ngcontent-ng-c1584373696="" class="input-container"><mat-icon _ngcontent-ng-c1584373696="" role="img" class="mat-icon notranslate input-icon material-icons mat-ligature-font mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">lock</mat-icon><input _ngcontent-ng-c1584373696="" id="password" placeholder="Enter your password" formcontrolname="password" required="" class="form-input ng-untouched ng-pristine ng-invalid" type="password"><button _ngcontent-ng-c1584373696="" type="button" class="eye-toggle"><mat-icon _ngcontent-ng-c1584373696="" role="img" class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">visibility_off</mat-icon></button></div><!----></div><div _ngcontent-ng-c1584373696="" class="form-options"><label _ngcontent-ng-c1584373696="" class="remember-me"><input _ngcontent-ng-c1584373696="" type="checkbox" class="checkbox"><span _ngcontent-ng-c1584373696="" class="checkmark"></span> Remember me </label><a _ngcontent-ng-c1584373696="" href="javascript:void(0)" class="forgot-link">Forgot password?</a></div><button _ngcontent-ng-c1584373696="" type="submit" class="signin-btn" disabled=""> Sign in </button></form></div></div></div></div><bet-apps-alert _ngcontent-ng-c1584373696="" _nghost-ng-c3934811152=""><div _ngcontent-ng-c3934811152="" class="alert-container"><!----></div></bet-apps-alert></bet-apps-login><!----><ngx-spinner bdcolor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise" _nghost-ng-c2230211809="" class="ng-tns-c2230211809-0"><!----></ngx-spinner></bet-apps-root>
+<link rel="modulepreload" href="chunk-OMI4O6E4.js"><link rel="modulepreload" href="chunk-CVYBFAWG.js"><link rel="modulepreload" href="chunk-6NSVVEVU.js"><link rel="modulepreload" href="chunk-VFKBIMOM.js"><link rel="modulepreload" href="chunk-S7JURK2O.js"><link rel="modulepreload" href="chunk-72LYH7AJ.js"><link rel="modulepreload" href="chunk-2LHDJFS4.js"><link rel="modulepreload" href="chunk-3BOJD552.js"><link rel="modulepreload" href="chunk-LUMBCCVO.js"><link rel="modulepreload" href="chunk-QGVWQPLC.js"><script src="polyfills-KR3GB226.js" type="module"></script><script src="scripts-7RGNAXP2.js" defer=""></script><script src="main-LV5NMIXE.js" type="module"></script>
+<div class="razorpay-container" style="z-index: 2147483647; position: fixed; top: 0px; display: none; left: 0px; height: 100%; width: 100%; max-height: 100dvh; backface-visibility: hidden; overflow-y: visible;"><style>@keyframes rzp-rot{to{transform: rotate(360deg);}}@-webkit-keyframes rzp-rot{to{-webkit-transform: rotate(360deg);}} .razorpay-container > iframe {min-height: 100%!important;}</style><div class="razorpay-backdrop" style="min-height: 100%; transition: 0.3s ease-out; position: fixed; top: 0px; left: 0px; width: 100%; height: 100%;"><span style="text-decoration: none; background: rgb(214, 68, 68); border: 1px dashed white; padding: 3px; opacity: 0; transform: rotate(45deg); transition: opacity 0.3s ease-in; font-family: lato, ubuntu, helvetica, sans-serif; color: white; position: absolute; width: 200px; text-align: center; right: -50px; top: 50px;">Test Mode</span></div><iframe allowtransparency="true" frameborder="0" width="100%" height="100%" src="https://api.razorpay.com/v1/checkout/public?traffic_env=production&amp;build=552df66dd10709c74cb11a01721e30b2504a6c12&amp;build_v1=7ae2bf3201f49a50df87a0f84ead68058d5a97ac&amp;checkout_v2=1&amp;new_session=1&amp;rzp_device_id=1.cb4e6b9c4032b9234a0f52e657d6e50c71f26f7f.1776399772819.93458747&amp;unified_session_id=SeQVOZUfegn94I" class="razorpay-checkout-frame" allow="otp-credentials; payment; clipboard-write; publickey-credentials-get https://api.razorpay.com; publickey-credentials-create 'self' https://api.razorpay.com; web-share; camera *; local-network-access 'none'; loopback-network 'none';" style="opacity: 1; height: 100%; position: relative; background: none; display: block; border: 0px none transparent; margin: 0px; padding: 0px; z-index: 2;"></iframe></div><div class="hiddendiv common"></div></body></html>
