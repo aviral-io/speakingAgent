@@ -16,12 +16,7 @@ This bot relies on `ffmpeg` to manipulate the synthetic audio, and Python 3 to r
 
 0. **Clone the Repo:**
    ```bash
-   # Debian / Ubuntu
-   sudo apt-get update
-   sudo apt-get install ffmpeg
-
-   # RHEL / Fedora
-   sudo dnf install ffmpeg
+   git clone https://github.com/aviral-io/speakingAgent.git
    ```
 
 1. **Install System Dependencies (FFmpeg):**
