@@ -14,6 +14,16 @@ An automated speaking assessment agent that parses web-based practice modules, g
 
 This bot relies on `ffmpeg` to manipulate the synthetic audio, and Python 3 to run the automation logic.
 
+0. **Clone the Repo:**
+   ```bash
+   # Debian / Ubuntu
+   sudo apt-get update
+   sudo apt-get install ffmpeg
+
+   # RHEL / Fedora
+   sudo dnf install ffmpeg
+   ```
+
 1. **Install System Dependencies (FFmpeg):**
    ```bash
    # Debian / Ubuntu
