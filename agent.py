@@ -187,16 +187,24 @@ async def main():
                 print(f'[{task_type}] Sentence extracted: {sentence}')
             audio_file = os.path.join(os.getcwd(), 'speech.mp3')
             print('Generating TTS Audio...')
-            communicate = edge_tts.Communicate(sentence, 'en-US-ChristopherNeural', rate=rate_modifier)
-            await communicate.save(audio_file)
-            subprocess.run(['ffmpeg', '-y', '-i', audio_file, '-ar', '48000', '-ac', '2', WAV_PATH], capture_output=True)
-            probe = subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', WAV_PATH], capture_output=True, text=True)
-            duration_secs = float(probe.stdout.strip())
-            
-            # Inject new audio base64 into the browser page directly
-            with open(WAV_PATH, "rb") as f:
-                wav_b64 = base64.b64encode(f.read()).decode('utf-8')
-            await page.evaluate(f"window.nextWavBase64 = '{wav_b64}';")
+            try:
+                communicate = edge_tts.Communicate(sentence, 'en-US-ChristopherNeural', rate=rate_modifier)
+                await communicate.save(audio_file)
+                subprocess.run(['ffmpeg', '-y', '-i', audio_file, '-ar', '48000', '-ac', '2', WAV_PATH], capture_output=True)
+                probe = subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', WAV_PATH], capture_output=True, text=True)
+                duration_secs = float(probe.stdout.strip())
+                
+                # Inject new audio base64 into the browser page directly
+                with open(WAV_PATH, "rb") as f:
+                    wav_b64 = base64.b64encode(f.read()).decode('utf-8')
+                await page.evaluate(f"window.nextWavBase64 = '{wav_b64}';")
+            except Exception as e:
+                print(f"TTS Generation failed (possibly on a results/transition page): {e}")
+                clicked = await click_visible_button(page, ["button:has-text('Submit')", "button:has-text('Next')", "button:has-text('Continue')", "button:has-text('Finish')", "button:has-text('Close')", "a:has-text('Submit')", "a:has-text('Next')", "a:has-text('Continue')", "a:has-text('Finish')", 'text=/Next|Continue|Submit|Finish|Close/i'], timeout=3000)
+                if clicked:
+                    print('Clicked Next/Continue/Submit/Finish after TTS failure.')
+                await page.wait_for_timeout(3000)
+                continue
             
             try:
                 start_btn = page.locator('text=/Start Recording/i').first
