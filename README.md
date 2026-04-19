@@ -10,7 +10,7 @@ An automated speaking assessment agent that parses web-based practice modules, g
 - Automatically maps a virtual fake audio device to speak directly into the browser assessment portal without manual microphone input.
 - Fully auto-advances through the grid interface.
 
-## Prerequisites (Linux)
+## Prerequisites (Linux) or Use WSL if you are on Windows
 
 This bot relies on `ffmpeg` to manipulate the synthetic audio, and Python 3 to run the automation logic.
 
