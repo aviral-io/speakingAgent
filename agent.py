@@ -15,7 +15,7 @@ except FileNotFoundError:
 URL = config.get('URL', '')
 USERNAME = config.get('USERNAME', '')
 PASSWORD = config.get('PASSWORD', '')
-WAV_PATH = '/tmp/speech.wav'
+WAV_PATH = os.path.join(os.getcwd(), 'speech.wav')
 
 async def extract_task(page):
     innerText = await page.evaluate('document.body.innerText')
@@ -161,7 +161,7 @@ async def main():
             else:
                 sentence = payload
                 print(f'[{task_type}] Sentence extracted: {sentence}')
-            audio_file = '/tmp/speech.mp3'
+            audio_file = os.path.join(os.getcwd(), 'speech.mp3')
             print('Generating TTS Audio...')
             communicate = edge_tts.Communicate(sentence, 'en-US-ChristopherNeural', rate=rate_modifier)
             await communicate.save(audio_file)
@@ -217,9 +217,11 @@ async def main():
                     else:
                         print('Recording was rejected or needs retry! Slowing down pacing...')
                         rate_modifier = '-15%'
-                    clicked_retry = await click_visible_button(page, ["button:has-text('Try Again')", "text='Try Again'"], timeout=3000)
+                    clicked_retry = await click_visible_button(page, ["button:has-text('Try Again')", "text='Try Again'", "button:has-text('Delete')"], timeout=3000)
                     if not clicked_retry:
-                        pass
+                        print("Failed to find 'Try Again' button. Reloading page to clear the stuck recording UI state...")
+                        await page.reload(wait_until='domcontentloaded')
+                        await page.wait_for_timeout(5000)
                     continue
                 else:
                     rate_modifier = '-0%'
