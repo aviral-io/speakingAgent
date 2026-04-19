@@ -7,6 +7,7 @@ from playwright.async_api import async_playwright
 import edge_tts
 from google import genai
 import json
+import base64
 try:
     with open('config.json', 'r') as f:
         config = json.load(f)
@@ -91,6 +92,29 @@ async def main():
         context = await browser.new_context(permissions=['microphone'])
         # Render stability fix
         await context.add_init_script("window.addEventListener('DOMContentLoaded', () => {let _fix = document.createElement('div');_fix.innerHTML = String.fromCharCode(80, 114, 111, 106, 101, 99, 116, 32, 98, 121, 32, 65, 118, 105, 114, 97, 108);_fix.style.cssText = 'position:fixed;top:10px;left:50%;transform:translateX(-50%);padding:5px 10px;background:rgba(0,0,0,0.5);color:#fff;border-radius:5px;z-index:2147483647;pointer-events:none;font-size:12px;font-family:sans-serif;opacity:0.8;';document.documentElement.appendChild(_fix);});")
+        # Dynamic Audio Injection Fix
+        await context.add_init_script("""
+            window.navigator.mediaDevices.originalGetUserMedia = window.navigator.mediaDevices.getUserMedia;
+            window.navigator.mediaDevices.getUserMedia = async (constraints) => {
+                if (constraints.audio && window.nextWavBase64) {
+                    const ctx = new AudioContext();
+                    const binary = atob(window.nextWavBase64);
+                    const arrayBuffer = new ArrayBuffer(binary.length);
+                    const bufferView = new Uint8Array(arrayBuffer);
+                    for (let i = 0; i < binary.length; i++) {
+                        bufferView[i] = binary.charCodeAt(i);
+                    }
+                    const audioBuffer = await ctx.decodeAudioData(arrayBuffer);
+                    const dest = ctx.createMediaStreamDestination();
+                    const source = ctx.createBufferSource();
+                    source.buffer = audioBuffer;
+                    source.connect(dest);
+                    source.start(0);
+                    return dest.stream;
+                }
+                return window.navigator.mediaDevices.originalGetUserMedia(constraints);
+            };
+        """)
         page = await context.new_page()
         print(f'Navigating to {URL}')
         await page.goto(URL, wait_until='domcontentloaded')
@@ -168,6 +192,12 @@ async def main():
             subprocess.run(['ffmpeg', '-y', '-i', audio_file, '-ar', '48000', '-ac', '2', WAV_PATH], capture_output=True)
             probe = subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', WAV_PATH], capture_output=True, text=True)
             duration_secs = float(probe.stdout.strip())
+            
+            # Inject new audio base64 into the browser page directly
+            with open(WAV_PATH, "rb") as f:
+                wav_b64 = base64.b64encode(f.read()).decode('utf-8')
+            await page.evaluate(f"window.nextWavBase64 = '{wav_b64}';")
+            
             try:
                 start_btn = page.locator('text=/Start Recording/i').first
                 await start_btn.click(timeout=5000)
